@@ -1,75 +1,65 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giacco Technologies</title>
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- Font moderna -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
-        <img src="logo.png" alt="Giacco Technologies Logo" class="logo" />
-
+    <!-- HEADER STICKY CON BLUR -->
+    <header class="header">
+        <img src="logo.png" class="logo" alt="Giacco Technologies Logo">
         <nav>
-            <ul class="nav-links">
-                <li><a href="#slider">Chi Siamo</a></li>
-                <li><a href="#slider">Servizi</a></li>
+            <ul>
+                <li><a href="#servizi">Servizi</a></li>
+                <li><a href="#chi-siamo">Chi Siamo</a></li>
                 <li><a href="#contatti">Contatti</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- HERO -->
+    <!-- HERO CON PARALLAX -->
     <section class="hero">
-        <h1 class="hero-title">Giacco Technologies</h1>
-        <p class="hero-subtitle">Tecnologia, Assistenza, Innovazione — al tuo servizio.</p>
+        <div class="hero-content">
+            <h1>Giacco Technologies</h1>
+            <p>Soluzioni tecnologiche, assistenza professionale e dispositivi di qualità.</p>
+        </div>
     </section>
 
-    <!-- SLIDER DINAMICO -->
-    <section id="slider" class="slider-container">
-
-        <!-- Slide 1 → Chi Siamo -->
-        <div class="slide" style="background-image: url('img1.jpg');">
-            <div class="slide-content">
-                <h2>Chi Siamo</h2>
-                <p>
-                    Siamo un punto di riferimento per chi cerca tecnologia di qualità e un’assistenza affidabile.
-                    Offriamo soluzioni su misura, supporto tecnico professionale e un’accurata selezione di prodotti digitali.
-                    Competenza, cortesia e attenzione alle esigenze di ogni cliente guidano ogni nostro servizio.
-                </p>
-            </div>
+    <!-- SLIDER PARALLAX + DRAG-SCROLL -->
+    <section id="slider" class="slider-section">
+        <div class="slider-track" id="sliderTrack">
+            <div class="slide"><img loading="lazy" src="slide1.png" alt=""></div>
+            <div class="slide"><img loading="lazy" src="slide2.png" alt=""></div>
+            <div class="slide"><img loading="lazy" src="slide3.png" alt=""></div>
+            <div class="slide"><img loading="lazy" src="slide4.png" alt=""></div>
         </div>
 
-        <!-- Slide 2 → Servizi -->
-        <div class="slide" style="background-image: url('img2.jpg');">
-            <div class="slide-content">
-                <h2>I Nostri Servizi</h2>
-                <ul class="services-list">
-                    <li>📱 Vendita dispositivi e accessori</li>
-                    <li>🛠️ Assistenza tecnica professionale</li>
-                    <li>💳 Finanziamenti personalizzati</li>
-                    <li>🔄 Ritiro usato e valutazione</li>
-                </ul>
-            </div>
-        </div>
+        <!-- Testo Sovrapposto -->
+        <div class="overlay-text">
+            <h2>Chi Siamo</h2>
+            <p>
+                Siamo un punto di riferimento per chi cerca tecnologia di qualità e un’assistenza affidabile.
+                Offriamo soluzioni su misura, supporto tecnico professionale e un’accurata selezione di dispositivi elettronici e digitali.
+            </p>
+            <p>
+                La nostra professionalità si distingue attraverso competenza tecnica, aggiornamento costante e un approccio trasparente.
+            </p>
+            <p>
+                Competenza, cortesia e attenzione alle esigenze di ognuno sono i valori che ci guidano ogni giorno.
+            </p>
 
-        <!-- Slide 3 → Altra immagine tecnologica -->
-        <div class="slide" style="background-image: url('img3.jpg');">
-            <div class="slide-content">
-                <h2>Tecnologia per tutti</h2>
-                <p>
-                    Smartphone, computer, console, accessori e molto altro — selezionati con cura e disponibili su richiesta.
-                </p>
-            </div>
+            <h2 style="margin-top:40px;">I Nostri Servizi</h2>
+            <ul class="serv-list">
+                <li>📱 Vendita dispositivi</li>
+                <li>🛠️ Assistenza tecnica</li>
+                <li>💳 Finanziamenti</li>
+                <li>♻️ Ritiro usato</li>
+            </ul>
         </div>
-
     </section>
 
     <!-- CONTATTI -->
@@ -77,32 +67,13 @@
         <h2>Contattaci</h2>
         <p><strong>Telefono:</strong> 3773115792</p>
         <p><strong>Email:</strong> giaccotechnologies@gmail.com</p>
-        <p><strong>Indirizzo:</strong> Corso Vittorio Emanuele III, 77, Afragola (NA)</p>
+        <p><strong>Indirizzo:</strong> Corso Vittorio Emanuele III, n.77, Afragola (NA)</p>
     </section>
 
     <footer>
         <p>© 2025 Giacco Technologies - Tutti i diritti riservati</p>
     </footer>
 
-    <!-- SCRIPT SLIDER -->
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll(".slide");
-
-        function showSlide(index) {
-            slides.forEach((s, i) => {
-                s.style.opacity = i === index ? "1" : "0";
-                s.style.transform = i === index ? "scale(1)" : "scale(1.05)";
-            });
-        }
-
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }, 5000);
-
-        showSlide(currentSlide);
-    </script>
-
+<script src="main.js"></script>
 </body>
 </html>
