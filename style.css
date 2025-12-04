@@ -1,190 +1,103 @@
-/* ------------------------
-   Giacco Tech - style.css
-   Fully responsive, parallax + scroll-driven slider
-   ------------------------ */
+/* style.css - Giacco Technologies
+   scroll-driven fullscreen backgrounds with fade + glass overlay
+*/
 
-/* Reset & base */
+/* reset */
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
-body{
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:#fafafa;color:#111;line-height:1.5;
-  -webkit-font-smoothing:antialiased;
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial;line-height:1.5;background:#fafafa;color:#111}
+
+/* header */
+.header{
+  position:sticky;top:0;z-index:1400;
+  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,0.78);
+  border-bottom:1px solid rgba(0,0,0,0.06);
 }
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 20px}
+.logo{height:80px}
+.nav ul{display:flex;gap:22px;list-style:none}
+.nav a{text-decoration:none;color:#111;padding:8px 12px;border-radius:10px;font-weight:600}
+.nav a:hover{background:rgba(0,0,0,0.06);transform:translateY(-2px);transition:all .18s}
 
-/* ---------- HEADER ---------- */
-.site-header, .header-inner { /* compatibility if named differently */
-  display:none;
-}
+/* hero */
+.hero{height:62vh;min-height:380px;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 20px;background-image:url('hero.png');background-size:cover;background-position:center}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.45))}
+.hero-inner{position:relative;z-index:2;max-width:1100px}
+.hero h1{font-size:48px;color:#fff;text-shadow:0 8px 30px rgba(0,0,0,0.6)}
+.subtitle{color:#f0f0f0;font-size:1.1rem}
 
-.site-header { /* not used - keep for backward compat */
-  display:block;
-}
-
-.site-header, .header-inner {}
-
-/* Sticky header */
-.site-header {display:none} /* keep old selector safe */
-
-.site-header, .header-inner {}
-
-.site-header {}
-
-.site-header {}
-
-.site-header {}
-
-.site-header {}
-
-.site-header {}
-
-.site-header {}
-
-.site-header {}
-
-/* Primary header (used) */
-.site-header {}
-
-.header-inner {}
-
-.site-header {}
-
-/* Use .site-header only if needed. Actual header uses .site-header? fallback to .site-header usage */
-.site-header {}
-
-/* Concrete header styling (the one present in HTML: .site-header not used; our header uses .site-header? keep simple) */
-
-/* Actual used header */
-.site-header {}
-
-.header-inner {}
-
-/* Let's style the header class used in HTML: .site-header not present; the header tag has class .site-header? In our HTML header has class "site-header" - yes. */
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1200;
-  backdrop-filter: blur(10px);
-  background: rgba(255,255,255,0.78);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-.header-inner {
-  max-width:1200px;
-  margin:0 auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:10px 22px;
-}
-.logo {
-  height:78px; /* enlarged visible logo */
-  display:block;
-}
-
-/* nav */
-.main-nav ul{display:flex;gap:22px;list-style:none}
-.main-nav a, .main-nav a:visited{color:#111;text-decoration:none;font-weight:600;padding:8px 12px;border-radius:10px}
-.main-nav a:hover{background:rgba(0,0,0,0.06);transform:translateY(-2px);transition:all 180ms ease}
-
-/* ---------- HERO ---------- */
-.hero{
-  height:68vh;
-  min-height:420px;
+/* main sections (each full viewport) */
+main{position:relative}
+.bg-section{
+  position:relative;
+  width:100%;
+  height:100vh;
+  min-height:520px;
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
-  padding:0 18px;
-  color:#fff;
-  background-image: url('hero.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  overflow:hidden;
+}
+
+/* background image layer */
+.bg-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  transition:opacity 700ms ease, transform 900ms cubic-bezier(.2,.8,.2,1);
+  opacity:0;
+  transform:scale(1.03);
+  will-change:opacity,transform;
+  z-index:0;
+}
+/* each section sets its background via inline data attribute - JS will assign style to ::before */
+.bg-section.visible::before{opacity:1;transform:scale(1);}
+
+/* glass overlay */
+.glass{
   position:relative;
-}
-.hero::after{
-  content:'';
-  position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.45));
-}
-.hero-inner{position:relative;z-index:2;max-width:1100px}
-.hero h1{font-size:48px;margin-bottom:10px;text-shadow:0 8px 30px rgba(0,0,0,0.6)}
-.hero-sub{font-size:1.2rem;color:rgba(255,255,255,0.95)}
-
-/* ---------- SLIDER SECTION ---------- */
-.slider-section{position:relative;padding:60px 0;overflow:hidden;background:transparent}
-.slider-stage{max-width:1500px;margin:0 auto;padding:0 18px}
-.slider-track{
-  display:flex;
-  gap:22px;
-  align-items:center;
-  overflow-x: auto;
-  scroll-behavior:smooth;
-  padding:18px;
-  cursor:grab;
-  -webkit-overflow-scrolling:touch;
-}
-.slider-track::-webkit-scrollbar{height:10px}
-.slider-track::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.12);border-radius:6px}
-.slide{flex:0 0 auto;width:420px;height:260px;border-radius:14px;overflow:hidden;box-shadow:0 14px 40px rgba(2,6,23,0.12)}
-.slide img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
-.slide:hover img{transform:scale(1.03)}
-
-/* overlay glass centered */
-.overlay-glass{
-  position:sticky;
-  top:90px;
-  margin:18px auto 0;
-  max-width:860px;
-  background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-  backdrop-filter: blur(10px) saturate(120%);
-  color:#fff;
-  padding:28px;
+  z-index:5;
+  max-width:920px;
+  margin:0 20px;
+  padding:30px;
   border-radius:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  backdrop-filter:blur(10px) saturate(120%);
+  color:#fff;
   box-shadow:0 20px 50px rgba(2,6,23,0.45);
-  text-align:left;
 }
-.overlay-glass h2{font-size:26px;margin-bottom:12px}
-.overlay-glass h3{margin-top:18px;margin-bottom:8px}
-.overlay-glass p{font-size:15px;line-height:1.6;color:rgba(255,255,255,0.95)}
-.serv-list{list-style:none;padding-left:0;margin-top:10px}
-.serv-list li{margin:8px 0;font-size:15px}
+.glass h2{font-size:26px;margin-bottom:12px}
+.glass p{font-size:15px;line-height:1.6;margin-bottom:10px;color:rgba(255,255,255,0.96)}
+.glass ul{margin-top:10px;padding-left:18px}
+.glass li{margin:8px 0;color:rgba(255,255,255,0.95)}
 
-/* ---------- SERVICES / fallback ---------- */
-.section{padding:80px 18px}
-.services .service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:1100px;margin:0 auto}
-.service-box{background:#fff;padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.04)}
-.service-box h4{margin-bottom:8px}
-
-/* CONTACTS & FOOTER */
-.contact{background:#fff;padding:70px 20px;text-align:center}
-.site-footer{background:#0b0b0b;color:#fff;padding:22px;text-align:center}
+/* contact / footer */
+.contact{padding:60px 16px;text-align:center;background:#fff}
+footer{padding:22px;text-align:center;background:#0b0b0b;color:#fff}
 
 /* back to top */
-.back-to-top{
-  position:fixed;right:20px;bottom:22px;width:54px;height:54px;border-radius:50%;border:none;
-  background:rgba(0,0,0,0.75);color:#fff;font-size:20px;display:none;align-items:center;justify-content:center;z-index:1400;cursor:pointer;
-  backdrop-filter: blur(6px);
-}
-.back-to-top:hover{transform:scale(1.07)}
+.back-to-top{position:fixed;right:20px;bottom:20px;width:54px;height:54px;border-radius:50%;border:none;background:rgba(0,0,0,0.78);color:#fff;font-size:20px;display:none;align-items:center;justify-content:center;z-index:1600;backdrop-filter:blur(6px)}
+.back-to-top:hover{transform:scale(1.06)}
 
-/* ---------- FADE-IN ---------- */
-.fade-in{opacity:0;transform:translateY(18px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)}
-.fade-in.visible{opacity:1;transform:none}
+/* fade-in utility */
+.fade-item{opacity:0;transform:translateY(12px);transition:opacity 700ms cubic-bezier(.2,.8,.2,1),transform 700ms cubic-bezier(.2,.8,.2,1)}
+.fade-item.visible{opacity:1;transform:none}
 
-/* ---------- RESPONSIVE ---------- */
-@media(max-width:1100px){
-  .slide{width:360px;height:240px}
-  .logo{height:68px}
-  .overlay-glass{max-width:760px;padding:22px}
+/* responsive */
+@media(max-width:900px){
+  .logo{height:64px}
+  .glass{padding:22px}
+  .hero h1{font-size:34px}
+  .bg-section{min-height:420px}
 }
-@media(max-width:768px){
-  .hero{height:56vh;background-attachment:scroll}
-  .hero h1{font-size:32px}
-  .slide{width:85vw;height:220px}
-  .overlay-glass{position:relative;top:auto;left:auto;transform:none;margin: -72px auto 18px;background:rgba(255,255,255,0.96);color:#111;backdrop-filter:none}
-  .overlay-glass p{color:#222}
-  .logo{height:60px}
-  .header-inner{padding:10px 14px}
-  .main-nav ul{display:none}
+@media(max-width:600px){
+  .nav ul{display:none}
+  .logo{height:54px}
+  .hero{height:50vh}
+  .glass{position:relative;background:rgba(255,255,255,0.96);color:#111;backdrop-filter:none;margin:-84px auto 20px}
+  .glass p, .glass li{color:#222}
 }
