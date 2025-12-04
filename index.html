@@ -9,88 +9,144 @@
 </head>
 <body>
 
-  <!-- HEADER STICKY -->
-  <header class="site-header">
+  <!-- HEADER -->
+  <header class="header">
     <div class="header-inner">
-      <!-- Logo retina-ready (se hai logo@2x.png mettilo accanto) -->
       <img src="logo.png" srcset="logo.png 1x, logo@2x.png 2x" alt="Giacco Technologies" class="logo">
-      <nav class="main-nav" aria-label="Main navigation">
+      <nav class="nav">
         <ul>
-          <li><a href="#slider" class="nav-link">Chi Siamo</a></li>
-          <li><a href="#servizi-section" class="nav-link">Servizi</a></li>
-          <li><a href="#contatti" class="nav-link">Contatti</a></li>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#sections">Chi Siamo & Servizi</a></li>
+          <li><a href="#contatti">Contatti</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- HERO (parallax) -->
-  <section class="hero section fade-in" id="hero">
+  <!-- HERO -->
+  <section id="hero" class="hero">
     <div class="hero-inner">
       <h1>Giacco Technologies</h1>
-      <p class="hero-sub">Soluzioni tecnologiche, assistenza professionale e dispositivi di qualità.</p>
+      <p class="subtitle">Soluzioni tecnologiche, assistenza professionale e dispositivi di qualità.</p>
     </div>
   </section>
 
-  <!-- SLIDER: scroll-driven + drag/touch -->
-  <section id="slider" class="slider-section section">
-    <div class="slider-stage">
-      <div id="sliderTrack" class="slider-track" aria-hidden="false">
-        <!-- Carica qui le immagini: slide1.png ... slide6.png (lazy) -->
-        <div class="slide"><img loading="lazy" src="slide1.png" alt="Smartphone moderno"></div>
-        <div class="slide"><img loading="lazy" src="slide2.png" alt="Laptop professionale"></div>
-        <div class="slide"><img loading="lazy" src="slide3.png" alt="Console da gioco"></div>
-        <div class="slide"><img loading="lazy" src="slide4.png" alt="Desktop setup"></div>
-        <div class="slide"><img loading="lazy" src="slide5.png" alt="Accessori audio"></div>
-        <div class="slide"><img loading="lazy" src="slide6.png" alt="Mix dispositivi"></div>
+  <!-- SEZIONI IMMAGINI (scroll-driven fade) -->
+  <main id="sections">
+    <!-- Section 1: Chi Siamo -->
+    <section class="bg-section fade-item" data-bg="bg1.jpg" id="sec1">
+      <div class="glass">
+        <h2>Chi Siamo</h2>
+        <p>
+          Siamo un punto di riferimento per chi cerca tecnologia di qualità e un’assistenza affidabile. Offriamo
+          soluzioni su misura, supporto tecnico professionale e un’accurata selezione di dispositivi elettronici
+          e digitali, che spaziano dall’informatica all’elettronica di consumo, dai sistemi per l’intrattenimento
+          ai dispositivi per la connettività e la comunicazione.
+        </p>
+        <p>
+          La nostra professionalità si distingue attraverso competenza tecnica, aggiornamento costante e un approccio
+          attento e trasparente, volto a garantire sempre il miglior risultato per ogni cliente. Competenza, cortesia
+          e attenzione alle esigenze di ognuno sono i valori che ci guidano ogni giorno.
+        </p>
       </div>
-    </div>
+    </section>
 
-    <!-- Glass overlay: Chi siamo + Servizi -->
-    <div class="overlay-glass fade-in">
-      <h2>Chi Siamo</h2>
-      <p>
-        Siamo un punto di riferimento per chi cerca tecnologia di qualità e un’assistenza affidabile.
-        Offriamo soluzioni su misura, supporto tecnico professionale e un’accurata selezione di dispositivi elettronici e digitali.
-      </p>
-      <p>
-        La nostra professionalità si distingue attraverso competenza tecnica, aggiornamento costante e un approccio attento e trasparente.
-      </p>
+    <!-- Section 2: Vendita -->
+    <section class="bg-section fade-item" data-bg="bg2.jpg" id="sec2">
+      <div class="glass">
+        <h2>Vendita</h2>
+        <p>
+          Selezioniamo e vendiamo smartphone, laptop, desktop, periferiche e accessori delle migliori marche. Offriamo
+          consulenza tecnica per la scelta del dispositivo più adatto alle tue esigenze — dal professionista al gamer,
+          dalla casa all’ufficio.
+        </p>
+        <ul>
+          <li>Prodotti testati e garantiti</li>
+          <li>Garanzia e assistenza post-vendita</li>
+          <li>Scelta basata su performance, affidabilità e rapporto qualità/prezzo</li>
+        </ul>
+      </div>
+    </section>
 
-      <h3>I Nostri Servizi</h3>
-      <ul class="serv-list">
-        <li>📱 Vendita dispositivi e accessori</li>
-        <li>🛠️ Assistenza tecnica professionale</li>
-        <li>💳 Finanziamenti su misura</li>
-        <li>♻️ Ritiro usato e valutazione</li>
-      </ul>
-    </div>
-  </section>
+    <!-- Section 3: Assistenza -->
+    <section class="bg-section fade-item" data-bg="bg3.jpg" id="sec3">
+      <div class="glass">
+        <h2>Assistenza</h2>
+        <p>
+          Offriamo servizi di assistenza tecnica professionale per hardware e software: diagnosi, riparazioni, aggiornamenti
+          e configurazioni. Interventi rapidi sia in negozio sia, quando possibile, a domicilio o in remoto.
+        </p>
+        <ul>
+          <li>Diagnosi veloce e preventivo trasparente</li>
+          <li>Sostituzione componenti e riparazioni certificate</li>
+          <li>Configurazione e ottimizzazione sistemi</li>
+        </ul>
+      </div>
+    </section>
 
-  <!-- fallback / SEO visible services -->
-  <section id="servizi-section" class="services section fade-in">
-    <h2>I Nostri Servizi</h2>
-    <div class="service-grid">
-      <article class="service-box"><h4>Vendita</h4><p>Dispositivi, accessori e prodotti tecnologici selezionati.</p></article>
-      <article class="service-box"><h4>Assistenza</h4><p>Supporto tecnico professionale per ogni esigenza.</p></article>
-      <article class="service-box"><h4>Finanziamenti</h4><p>Soluzioni flessibili per l'acquisto.</p></article>
-      <article class="service-box"><h4>Ritiro Usato</h4><p>Valutazione e ritiro dei dispositivi usati.</p></article>
-    </div>
-  </section>
+    <!-- Section 4: Finanziamenti -->
+    <section class="bg-section fade-item" data-bg="bg4.jpg" id="sec4">
+      <div class="glass">
+        <h2>Finanziamenti</h2>
+        <p>
+          Proponiamo soluzioni di pagamento flessibili e personalizzate per aiutarti ad acquistare i prodotti di cui hai bisogno
+          senza gravare subito sul tuo budget. Collaboriamo con partner affidabili per offerte chiare e veloci.
+        </p>
+        <ul>
+          <li>Piani a rate a tasso agevolato</li>
+          <li>Procedura semplice e documentazione minima</li>
+          <li>Possibilità di scegliere durata e rata in base alle tue esigenze</li>
+        </ul>
+      </div>
+    </section>
 
-  <!-- CONTACTS -->
-  <section id="contatti" class="contact section fade-in">
+    <!-- Section 5: Ritiro Usato -->
+    <section class="bg-section fade-item" data-bg="bg5.jpg" id="sec5">
+      <div class="glass">
+        <h2>Ritiro Usato</h2>
+        <p>
+          Valutiamo con cura i tuoi dispositivi usati per offrirti la migliore valutazione possibile. Offriamo ritiro, certificazione
+          e, se richiesto, formattazione e reset dei dati per una consegna sicura.
+        </p>
+        <ul>
+          <li>Valutazione gratuita e trasparente</li>
+          <li>Soluzioni di permuta e sconto sull’acquisto</li>
+          <li>Cancellazione sicura dei dati prima della rivendita</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section 6: Gaming & Accessori -->
+    <section class="bg-section fade-item" data-bg="bg6.jpg" id="sec6">
+      <div class="glass">
+        <h2>Gaming & Accessori</h2>
+        <p>
+          Offriamo console, periferiche e accessori per il gaming con attenzione alle performance e all’esperienza utente.
+          Se cerchi la configurazione perfetta per il gioco o l’intrattenimento, ti supportiamo con consigli tecnici e prodotti
+          aggiornati.
+        </p>
+        <ul>
+          <li>Console, controller e cuffie di ultima generazione</li>
+          <li>Setup personalizzati per gaming e streaming</li>
+          <li>Accessori testati per prestazioni e comfort</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- CONTATTI -->
+  <section id="contatti" class="contact">
     <h2>Contattaci</h2>
     <p><strong>Telefono:</strong> 3773115792</p>
     <p><strong>Email:</strong> giaccotechnologies@gmail.com</p>
     <p><strong>Indirizzo:</strong> Corso Vittorio Emanuele III, n.77, Afragola (NA)</p>
   </section>
 
-  <footer class="site-footer">
+  <footer>
     <p>© 2025 Giacco Technologies - Tutti i diritti riservati</p>
   </footer>
 
-  <!-- Back to top -->
+  <!-- back to top -->
   <button id="backToTop" class="back-to-top" aria-label="Torna su">↑</button>
 
   <script src="main.js"></script>
