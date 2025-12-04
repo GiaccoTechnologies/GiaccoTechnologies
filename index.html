@@ -1,79 +1,98 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giacco Technologies</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Giacco Technologies</title>
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-    <!-- HEADER STICKY CON BLUR -->
-    <header class="header">
-        <img src="logo.png" class="logo" alt="Giacco Technologies Logo">
-        <nav>
-            <ul>
-                <li><a href="#servizi">Servizi</a></li>
-                <li><a href="#chi-siamo">Chi Siamo</a></li>
-                <li><a href="#contatti">Contatti</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- HEADER STICKY -->
+  <header class="site-header">
+    <div class="header-inner">
+      <!-- Logo retina-ready (se hai logo@2x.png mettilo accanto) -->
+      <img src="logo.png" srcset="logo.png 1x, logo@2x.png 2x" alt="Giacco Technologies" class="logo">
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#slider" class="nav-link">Chi Siamo</a></li>
+          <li><a href="#servizi-section" class="nav-link">Servizi</a></li>
+          <li><a href="#contatti" class="nav-link">Contatti</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <!-- HERO CON PARALLAX -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Giacco Technologies</h1>
-            <p>Soluzioni tecnologiche, assistenza professionale e dispositivi di qualità.</p>
-        </div>
-    </section>
+  <!-- HERO (parallax) -->
+  <section class="hero section fade-in" id="hero">
+    <div class="hero-inner">
+      <h1>Giacco Technologies</h1>
+      <p class="hero-sub">Soluzioni tecnologiche, assistenza professionale e dispositivi di qualità.</p>
+    </div>
+  </section>
 
-    <!-- SLIDER PARALLAX + DRAG-SCROLL -->
-    <section id="slider" class="slider-section">
-        <div class="slider-track" id="sliderTrack">
-            <div class="slide"><img loading="lazy" src="slide1.png" alt=""></div>
-            <div class="slide"><img loading="lazy" src="slide2.png" alt=""></div>
-            <div class="slide"><img loading="lazy" src="slide3.png" alt=""></div>
-            <div class="slide"><img loading="lazy" src="slide4.png" alt=""></div>
-        </div>
+  <!-- SLIDER: scroll-driven + drag/touch -->
+  <section id="slider" class="slider-section section">
+    <div class="slider-stage">
+      <div id="sliderTrack" class="slider-track" aria-hidden="false">
+        <!-- Carica qui le immagini: slide1.png ... slide6.png (lazy) -->
+        <div class="slide"><img loading="lazy" src="slide1.png" alt="Smartphone moderno"></div>
+        <div class="slide"><img loading="lazy" src="slide2.png" alt="Laptop professionale"></div>
+        <div class="slide"><img loading="lazy" src="slide3.png" alt="Console da gioco"></div>
+        <div class="slide"><img loading="lazy" src="slide4.png" alt="Desktop setup"></div>
+        <div class="slide"><img loading="lazy" src="slide5.png" alt="Accessori audio"></div>
+        <div class="slide"><img loading="lazy" src="slide6.png" alt="Mix dispositivi"></div>
+      </div>
+    </div>
 
-        <!-- Testo Sovrapposto -->
-        <div class="overlay-text">
-            <h2>Chi Siamo</h2>
-            <p>
-                Siamo un punto di riferimento per chi cerca tecnologia di qualità e un’assistenza affidabile.
-                Offriamo soluzioni su misura, supporto tecnico professionale e un’accurata selezione di dispositivi elettronici e digitali.
-            </p>
-            <p>
-                La nostra professionalità si distingue attraverso competenza tecnica, aggiornamento costante e un approccio trasparente.
-            </p>
-            <p>
-                Competenza, cortesia e attenzione alle esigenze di ognuno sono i valori che ci guidano ogni giorno.
-            </p>
+    <!-- Glass overlay: Chi siamo + Servizi -->
+    <div class="overlay-glass fade-in">
+      <h2>Chi Siamo</h2>
+      <p>
+        Siamo un punto di riferimento per chi cerca tecnologia di qualità e un’assistenza affidabile.
+        Offriamo soluzioni su misura, supporto tecnico professionale e un’accurata selezione di dispositivi elettronici e digitali.
+      </p>
+      <p>
+        La nostra professionalità si distingue attraverso competenza tecnica, aggiornamento costante e un approccio attento e trasparente.
+      </p>
 
-            <h2 style="margin-top:40px;">I Nostri Servizi</h2>
-            <ul class="serv-list">
-                <li>📱 Vendita dispositivi</li>
-                <li>🛠️ Assistenza tecnica</li>
-                <li>💳 Finanziamenti</li>
-                <li>♻️ Ritiro usato</li>
-            </ul>
-        </div>
-    </section>
+      <h3>I Nostri Servizi</h3>
+      <ul class="serv-list">
+        <li>📱 Vendita dispositivi e accessori</li>
+        <li>🛠️ Assistenza tecnica professionale</li>
+        <li>💳 Finanziamenti su misura</li>
+        <li>♻️ Ritiro usato e valutazione</li>
+      </ul>
+    </div>
+  </section>
 
-    <!-- CONTATTI -->
-    <section id="contatti" class="contact">
-        <h2>Contattaci</h2>
-        <p><strong>Telefono:</strong> 3773115792</p>
-        <p><strong>Email:</strong> giaccotechnologies@gmail.com</p>
-        <p><strong>Indirizzo:</strong> Corso Vittorio Emanuele III, n.77, Afragola (NA)</p>
-    </section>
+  <!-- fallback / SEO visible services -->
+  <section id="servizi-section" class="services section fade-in">
+    <h2>I Nostri Servizi</h2>
+    <div class="service-grid">
+      <article class="service-box"><h4>Vendita</h4><p>Dispositivi, accessori e prodotti tecnologici selezionati.</p></article>
+      <article class="service-box"><h4>Assistenza</h4><p>Supporto tecnico professionale per ogni esigenza.</p></article>
+      <article class="service-box"><h4>Finanziamenti</h4><p>Soluzioni flessibili per l'acquisto.</p></article>
+      <article class="service-box"><h4>Ritiro Usato</h4><p>Valutazione e ritiro dei dispositivi usati.</p></article>
+    </div>
+  </section>
 
-    <footer>
-        <p>© 2025 Giacco Technologies - Tutti i diritti riservati</p>
-    </footer>
+  <!-- CONTACTS -->
+  <section id="contatti" class="contact section fade-in">
+    <h2>Contattaci</h2>
+    <p><strong>Telefono:</strong> 3773115792</p>
+    <p><strong>Email:</strong> giaccotechnologies@gmail.com</p>
+    <p><strong>Indirizzo:</strong> Corso Vittorio Emanuele III, n.77, Afragola (NA)</p>
+  </section>
 
-<script src="main.js"></script>
+  <footer class="site-footer">
+    <p>© 2025 Giacco Technologies - Tutti i diritti riservati</p>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="backToTop" class="back-to-top" aria-label="Torna su">↑</button>
+
+  <script src="main.js"></script>
 </body>
 </html>
