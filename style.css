@@ -101,3 +101,14 @@ footer{padding:22px;text-align:center;background:#0b0b0b;color:#fff}
   .glass{position:relative;background:rgba(255,255,255,0.96);color:#111;backdrop-filter:none;margin:-84px auto 20px}
   .glass p, .glass li{color:#222}
 }
+/* FIX mobile glass visibility */
+@media(max-width:600px){
+  .glass{
+    background:rgba(255,255,255,0.96) !important;
+    color:#111 !important;
+  }
+  .glass p,
+  .glass li {
+    color:#111 !important;
+  }
+}
